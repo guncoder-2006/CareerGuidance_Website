@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    .hover-card:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    #contact {
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">CareerGuide</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-blue-200">About</a></li>
+                <li><a href="#services" class="hover:text-blue-200">Services</a></li>
+                <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+        <h1 class="text-5xl font-bold">Find Your Dream Career</h1>
+        <p class="mt-4 text-lg">Get personalized career guidance based on your skills and interests.</p>
+        <a href="#contact"><button class="mt-6 px-6 py-3 bg-white text-blue-700 rounded-lg shadow-md hover:bg-gray-200 transition">Get Started</button></a>
+        
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gradient-to-r from-gray-100 to-gray-300">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-blue-900">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="p-6 bg-blue-200 rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Career Guidance</h3>
+                    <p class="text-gray-700 mt-2">Personalized advice based on your skills.</p>
+                </div>
+                <div class="p-6 bg-green-200 rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Skill Assessment</h3>
+                    <p class="text-gray-700 mt-2">Analyze your strengths and growth areas.</p>
+                </div>
+                <div class="p-6 bg-yellow-200 rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Job Recommendations</h3>
+                    <p class="text-gray-700 mt-2">Find jobs that match your profile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Sample Career Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-blue-900">Explore Careers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 items-center">
+                <div class="p-6 bg-blue-500 text-white rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Full Stack Developer</h3>
+                    <p class="mt-2">Build modern web applications from front-end to back-end.</p>
+                </div>
+                <div class="p-6 bg-green-500 text-white rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Data Scientist</h3>
+                    <p class="mt-2">Analyze and interpret complex data for decision-making.</p>
+                </div>
+                <div class="p-6 bg-red-500 text-white rounded-lg shadow-md hover-card">
+                    <h3 class="text-xl font-semibold">Cyber Security Analyst</h3>
+                    <p class="mt-2">Protect systems and networks from cyber threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 text-center">Get Career Guidance</h2>
+            <form id="careerForm" class="mt-8 max-w-lg mx-auto">
+                <div class="mb-4">
+                    <label for="name" class="block text-blue-700">Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 border border-blue-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="skills" class="block text-blue-700">Skills</label>
+                    <input type="text" id="skills" name="skills" class="w-full p-2 border border-blue-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="interests" class="block text-blue-700">Interests</label>
+                    <input type="text" id="interests" name="interests" class="w-full p-2 border border-blue-300 rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="certifications" class="block text-blue-700">Certifications</label>
+                    <input type="text" id="certifications" name="certifications" class="w-full p-2 border border-blue-300 rounded" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Submit</button>
+            </form>
+            <div id="result" class="mt-8 text-center"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 p-4 text-white text-center">
+        <p>&copy; 2023 CareerGuide. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('careerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Log the data being sent
+            console.log("Data being sent:", data);
+
+            // Send the data to the backend
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                console.log("Response status:", response.status);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Response data:", data); // Log the response data
+                document.getElementById('result').innerHTML = `
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-900">Career Options:</h3>
+                        <p class="mt-2 text-blue-700">${data.message}</p>
+                    </div>
+                `;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <p class="text-red-500">Failed to fetch career options. Please try again.</p>
+                    </div>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
